@@ -12,7 +12,7 @@ env:
   TORCHAUDIO_VERSION: "0.13.1"
   TORCHAUDIO_VERSION_SUFFIX: "+cu117"
   PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/cu117/torch_stable.html"
-
+  SM35_PYTORCH_DOWNLOAD_URL: "https://nelsonliu.me/files/pytorch/whl/torch_stable.html"
   IMAGE_TAG: "1.13.1-py3.9.12-cuda11.7.1-ubuntu20.04-sm35"
 
 on:
