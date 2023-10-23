@@ -62,3 +62,6 @@ RUN if [ ! $TORCHAUDIO_VERSION ]; \
     rm -r /root/.cache/pip
 
 WORKDIR /workspace
+RUN pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple
+RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+RUN apt-get clean
