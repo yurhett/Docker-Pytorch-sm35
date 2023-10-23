@@ -53,7 +53,7 @@ RUN if [ ! $TORCHAUDIO_VERSION ]; \
             ${TORCHAUDIO} \
             -f ${PYTORCH_DOWNLOAD_URL}; \
     fi && \
-    if [ ! $SM35_PYTORCH_DOWNLOAD_URL ]; \
+    if [ $SM35_PYTORCH_DOWNLOAD_URL ]; \
     then \
         pip install --upgrade --force-reinstall\
             torch==${PYTORCH_VERSION}${PYTORCH_VERSION_SUFFIX} \
