@@ -1,7 +1,7 @@
 name: Build(1.13.1_py3.9.12_cuda11.7.1_ubuntu20.04_sm35_withcuda)
 
 env:
-  BASE_IMAGE: "nvidia/cuda:11.4.3-base-ubuntu20.04"
+  BASE_IMAGE: "nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04"
 
   PYTHON_VERSION: "3.9.12"
 
