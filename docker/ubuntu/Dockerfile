@@ -3,6 +3,7 @@ ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
 ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:-compute,utility}
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
     apt install -y \
@@ -10,6 +11,7 @@ RUN apt update && \
         libreadline-dev libffi-dev libsqlite3-dev libbz2-dev liblzma-dev && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
+    
 
 ARG PYTHON_VERSION
 
