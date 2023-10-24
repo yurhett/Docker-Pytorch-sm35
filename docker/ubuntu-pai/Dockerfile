@@ -3,6 +3,7 @@ ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
 ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:-compute,utility}
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
     apt install -y \
@@ -10,6 +11,19 @@ RUN apt update && \
         libreadline-dev libffi-dev libsqlite3-dev libbz2-dev liblzma-dev && \
     apt install -y \
         build-essential apt-utils ca-certificates wget git vim libssl-dev curl unzip unrar openssh-client openssh-server \
+        dbus distro-info-data dmsetup file gir1.2-glib-2.0 krb5-locales libapparmor1 \
+        systemd systemd-sysv systemd-timesyncd tzdata ucf xauth xdg-user-dirs \
+        python3-urllib3 python3.8 python3.8-minimal shared-mime-info ssh-import-id \
+        python3-minimal python3-pkg-resources python3-requests python3-six \
+        python3-chardet python3-dbus python3-distro python3-gi python3-idna \
+        ncurses-term networkd-dispatcher openssh-sftp-server python3 python3-certifi \
+        libxau6 libxcb1 libxdmcp6 libxext6 libxml2 libxmuu1 lsb-release mime-support \
+        libpython3.8-minimal libpython3.8-stdlib libwrap0 libx11-6 libx11-data \
+        libmagic1 libmpdec2 libnss-systemd libpam-systemd libpython3-stdlib \
+        libk5crypto3 libkeyutils1 libkmod2 libkrb5-3 libkrb5support0 libmagic-mgc \
+        libglib2.0-0 libglib2.0-data libgssapi-krb5-2 libicu66 libip4tc2 libjson-c4 \
+        libdevmapper1.02.1 libedit2 libexpat1 libfido2-1 libgirepository-1.0-1 \
+        libargon2-1 libbsd0 libcap2 libcbor0.6 libcryptsetup12 libdbus-1-3 \
         software-properties-common && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
