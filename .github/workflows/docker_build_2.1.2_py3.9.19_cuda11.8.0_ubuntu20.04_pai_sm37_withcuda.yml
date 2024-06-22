@@ -1,0 +1,40 @@
+name: Build(2.1.2_py3.9.17_cuda11.8.0_ubuntu20.04_pai_sm37_withcuda)
+
+env:
+  BASE_IMAGE: "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04"
+
+  PYTHON_VERSION: "3.9.19"
+
+  PYTORCH_VERSION: "2.1.2"
+  PYTORCH_VERSION_SUFFIX: "+cu118"
+  TORCHVISION_VERSION: "0.16.2"
+  TORCHVISION_VERSION_SUFFIX: "+cu118"
+  TORCHAUDIO_VERSION: "2.1.2"
+  TORCHAUDIO_VERSION_SUFFIX: "+cu118"
+  PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/cu118/torch_stable.html"
+
+  IMAGE_TAG: "2.1.2-py3.9.17-cuda11.8.0-ubuntu20.04-pai-sm37-withcuda"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Fix permission
+        run: chmod -R 777 docker
+        
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - name: Build docker image
+        run: docker/ubuntu-pai/build.sh
+        
+      - name: Push docker image
+        run: docker push yulonger/pytorch:${IMAGE_TAG}
