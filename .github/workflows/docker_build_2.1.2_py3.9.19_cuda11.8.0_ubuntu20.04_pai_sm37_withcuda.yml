@@ -1,4 +1,4 @@
-name: Build(2.1.2_py3.9.17_cuda11.8.0_ubuntu20.04_pai_sm37_withcuda)
+name: Build(2.1.2_py3.9.19_cuda11.8.0_ubuntu20.04_pai_sm37_withcuda)
 
 env:
   BASE_IMAGE: "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04"
@@ -13,7 +13,7 @@ env:
   TORCHAUDIO_VERSION_SUFFIX: "+cu118"
   PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/cu118/torch_stable.html"
 
-  IMAGE_TAG: "2.1.2-py3.9.17-cuda11.8.0-ubuntu20.04-pai-sm37-withcuda"
+  IMAGE_TAG: "2.1.2-py3.9.19-cuda11.8.0-ubuntu20.04-pai-sm37-withcuda"
 
 on:
   workflow_dispatch:
